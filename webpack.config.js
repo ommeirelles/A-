@@ -1,30 +1,20 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
 
 module.exports = {
-    context: `${__dirname}/components`,
-    entry: 'app.jsx',
+    entry: path.join(__dirname, 'src', 'app.js'),
     output: {
-        path: `${__dirname}/dist`,
+        path: path.join(__dirname, 'dist'),
         filename: 'bundle.js'
     },
     module: {
-        rules: [{
-            test: /\.jsx$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['es2015', 'react'],
-                plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy']
+        rules: [
+          {
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            use: {
+              loader: 'babel-loader'
             }
-        }, {
-            test: /\.less$/,
-            use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: ['css-loader', 'less-loader']
-            })
-        }]
-    },
-    plugins: [
-        new ExtractTextPlugin('style.css')
-    ]
-};
+          }
+        ]
+      }
+}
