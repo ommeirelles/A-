@@ -1,0 +1,45 @@
+.app {
+  height: 100%;
+  display: flex;
+  margin: 0px;
+}
+.app .view {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 255, 0.05);
+}
+.app .view .left-panel {
+  display: flex;
+  justify-self: flex-start;
+  width: 15%;
+  padding: 24px;
+  flex-direction: column;
+  box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 255, 0.15);
+}
+.app .view .left-panel > *:not(:first-child) {
+  margin-top: 16px;
+}
+.app .view .map {
+  padding: 24px;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+}
+.app .view .map .line {
+  background-color: white;
+  display: flex;
+  min-height: 30px;
+}
+.app .view .map .line .column {
+  border: 1px solid black;
+  background-color: white;
+  min-width: 30px;
+}
+.app .view .map .line .column.pos {
+  background-color: rgba(255, 0, 0, 0.2);
+}
