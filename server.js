@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 
 app.use(express.static(`${__dirname}/dist`));
+app.use(express.static(`${__dirname}/src/templates`));
 // app.use(express.static(`${__dirname}/src/images`));
 
 app.get('*', (req, res) => {

@@ -1,0 +1,12 @@
+<div class="left-panel">
+    <label>Linhas</label>
+    <input type="number" data-ng-model="lines">
+    <label>Colunas</label>
+    <input type="number" data-ng-model="columns">
+</div>
+<div class="map">
+    <div class="line" data-ng-repeat="line in getNumber(lines) track by $index">
+        <div class="column" data-ng-class="{pos: getPosition($parent.$index, $index)}" data-ng-repeat="column in getNumber(columns) track by $index" data-ng-click="changePosition($parent.$index, $index)">
+        </div>
+    </div>
+</div>
